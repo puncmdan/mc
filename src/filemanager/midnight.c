@@ -275,6 +275,8 @@ create_command_menu (void)
      * the WTree widget port, sorry.
      */
     GList *entries = NULL;
+	
+    entries = g_list_prepend (entries, menu_entry_create (_("Te&st"), CK_Test));
 
     entries = g_list_prepend (entries, menu_entry_create (_("&User menu"), CK_UserMenu));
     entries = g_list_prepend (entries, menu_entry_create (_("&Directory tree"), CK_Tree));
@@ -1067,12 +1069,37 @@ quit_cmd_internal (int quiet)
     return (quit != 0);
 }
 
+/* --------------------------------------------------------------------------------------------- */ //mymethod test
+
+static gboolean
+test_cmd_internal (int test)
+{
+    int t = test;
+    size_t n;
+
+ if (query_dialog (_("The Midnight Commander HC test"),
+                           _("Test add by Daniel Puncman"),
+                           D_NORMAL, 2, _("&Yes"), _("&No")) == 0)
+        t = 1;
+
+}
+
+
 /* --------------------------------------------------------------------------------------------- */
 
 static gboolean
 quit_cmd (void)
 {
     return quit_cmd_internal (0);
+}
+
+
+/* --------------------------------------------------------------------------------------------- *///my test mehtod
+
+static gboolean
+test_cmd (void)
+{
+    return test_cmd_internal (0);
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -1305,6 +1332,9 @@ midnight_execute_cmd (Widget * sender, unsigned long command)
         break;
     case CK_Quit:
         quit_cmd ();
+        break;
+    case CK_Test:
+        test_cmd ();
         break;
     case CK_LinkSymbolicRelative:
         link_cmd (LINK_SYMLINK_RELATIVE);

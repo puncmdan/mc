@@ -133,6 +133,7 @@ static name_keymap_t command_names[] = {
     {"LearnKeys", CK_LearnKeys},
     {"Bookmark", CK_Bookmark},
     {"Quit", CK_Quit},
+    {"Test", CK_Test},
     {"QuitQuiet", CK_QuitQuiet},
     {"ExtendedKeyMap", CK_ExtendedKeyMap},
 
