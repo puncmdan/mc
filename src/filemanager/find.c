@@ -643,12 +643,15 @@ find_parameters (char **start_dir, ssize_t * start_dir_len,
                    INPUT_COMPLETE_FILENAMES | INPUT_COMPLETE_CD);
     add_widget (find_dlg, in_name);
 
-     only_directories_cbox = check_new (y2++, x2, options.only_directories, file_only_directories_label);
-    add_widget (find_dlg, only_directories_cbox);
+     
  
     /* Start 2nd column */
     content_label = label_new (y2++, x2, content_content_label);
     add_widget (find_dlg, content_label);
+
+    only_directories_cbox = check_new (y2++, x2, options.only_directories, file_only_directories_label);
+    add_widget (find_dlg, only_directories_cbox);
+
     in_with =
         input_new (y2++, x2, input_get_default_colors (), cw, INPUT_LAST_TEXT,
                    MC_HISTORY_SHARED_SEARCH, INPUT_COMPLETE_NONE);
